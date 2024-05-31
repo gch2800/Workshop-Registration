@@ -1,0 +1,557 @@
+<script src="https://cdn03.jotfor.ms/static/prototype.forms.js?v=3.3.54424" type="text/javascript"></script>
+<script src="https://cdn01.jotfor.ms/static/jotform.forms.js?v=3.3.54424" type="text/javascript"></script>
+<script src="https://cdn02.jotfor.ms/js/punycode-1.4.1.min.js?v=3.3.54424" type="text/javascript" defer></script>
+<script src="https://cdn03.jotfor.ms/js/vendor/maskedinput_5.0.9.min.js?v=3.3.54424" type="text/javascript"></script>
+<script src="https://cdn01.jotfor.ms/js/paypal.js?v=3.3.54424" type="text/javascript"></script>
+<script src="https://cdn02.jotfor.ms/js/payments/paymentUtils.js?v=3.3.54424" type="text/javascript"></script>
+<script src="https://cdn03.jotfor.ms/js/payments/validategateways.js?v=3.3.54424" type="text/javascript"></script>
+<script src="https://cdn01.jotfor.ms/s/umd/9fb7ab3b942/for-form-branding-footer.js?v=3.3.54424" type="text/javascript" defer></script>
+<script src="https://cdn01.jotfor.ms/js/vendor/smoothscroll.min.js?v=3.3.54424" type="text/javascript"></script>
+<script src="https://cdn02.jotfor.ms/js/errorNavigation.js?v=3.3.54424" type="text/javascript"></script>
+<script type="text/javascript">	JotForm.newDefaultTheme = true;
+	JotForm.extendsNewTheme = false;
+	JotForm.singleProduct = false;
+	JotForm.newPaymentUIForNewCreatedForms = false;
+	JotForm.texts = {"confirmEmail":"E-mail does not match","pleaseWait":"Please wait...","validateEmail":"You need to validate this e-mail","confirmClearForm":"Are you sure you want to clear the form","lessThan":"Your score should be less than or equal to","incompleteFields":"There are incomplete required fields. Please complete them.","required":"This field is required.","requireOne":"At least one field required.","requireEveryRow":"Every row is required.","requireEveryCell":"Every cell is required.","email":"Enter a valid e-mail address","alphabetic":"This field can only contain letters","numeric":"This field can only contain numeric values","alphanumeric":"This field can only contain letters and numbers.","cyrillic":"This field can only contain cyrillic characters","url":"This field can only contain a valid URL","currency":"This field can only contain currency values.","fillMask":"Field value must fill mask.","uploadExtensions":"You can only upload following files:","noUploadExtensions":"File has no extension file type (e.g. .txt, .png, .jpeg)","uploadFilesize":"File size cannot be bigger than:","uploadFilesizemin":"File size cannot be smaller than:","gradingScoreError":"Score total should only be less than or equal to","inputCarretErrorA":"Input should not be less than the minimum value:","inputCarretErrorB":"Input should not be greater than the maximum value:","maxDigitsError":"The maximum digits allowed is","minCharactersError":"The number of characters should not be less than the minimum value:","maxCharactersError":"The number of characters should not be more than the maximum value:","freeEmailError":"Free email accounts are not allowed","minSelectionsError":"The minimum required number of selections is ","maxSelectionsError":"The maximum number of selections allowed is ","pastDatesDisallowed":"Date must not be in the past.","dateLimited":"This date is unavailable.","dateInvalid":"This date is not valid. The date format is {format}","dateInvalidSeparate":"This date is not valid. Enter a valid {element}.","ageVerificationError":"You must be older than {minAge} years old to submit this form.","multipleFileUploads_typeError":"{file} has invalid extension. Only {extensions} are allowed.","multipleFileUploads_sizeError":"{file} is too large, maximum file size is {sizeLimit}.","multipleFileUploads_minSizeError":"{file} is too small, minimum file size is {minSizeLimit}.","multipleFileUploads_emptyError":"{file} is empty, please select files again without it.","multipleFileUploads_uploadFailed":"File upload failed, please remove it and upload the file again.","multipleFileUploads_onLeave":"The files are being uploaded, if you leave now the upload will be cancelled.","multipleFileUploads_fileLimitError":"Only {fileLimit} file uploads allowed.","dragAndDropFilesHere_infoMessage":"Drag and drop files here","chooseAFile_infoMessage":"Choose a file","maxFileSize_infoMessage":"Max. file size","generalError":"There are errors on the form. Please fix them before continuing.","generalPageError":"There are errors on this page. Please fix them before continuing.","wordLimitError":"Too many words. The limit is","wordMinLimitError":"Too few words.  The minimum is","characterLimitError":"Too many Characters.  The limit is","characterMinLimitError":"Too few characters. The minimum is","ccInvalidNumber":"Credit Card Number is invalid.","ccInvalidCVC":"CVC number is invalid.","ccInvalidExpireDate":"Expire date is invalid.","ccInvalidExpireMonth":"Expiration month is invalid.","ccInvalidExpireYear":"Expiration year is invalid.","ccMissingDetails":"Please fill up the credit card details.","ccMissingProduct":"Please select at least one product.","ccMissingDonation":"Please enter numeric values for donation amount.","disallowDecimals":"Please enter a whole number.","restrictedDomain":"This domain is not allowed","ccDonationMinLimitError":"Minimum amount is {minAmount} {currency}","requiredLegend":"All fields marked with * are required and must be filled.","geoPermissionTitle":"Permission Denied","geoPermissionDesc":"Check your browser's privacy settings.","geoNotAvailableTitle":"Position Unavailable","geoNotAvailableDesc":"Location provider not available. Please enter the address manually.","geoTimeoutTitle":"Timeout","geoTimeoutDesc":"Please check your internet connection and try again.","selectedTime":"Selected Time","formerSelectedTime":"Former Time","cancelAppointment":"Cancel Appointment","cancelSelection":"Cancel Selection","noSlotsAvailable":"No slots available","slotUnavailable":"{time} on {date} has been selected is unavailable. Please select another slot.","multipleError":"There are {count} errors on this page. Please correct them before moving on.","oneError":"There is {count} error on this page. Please correct it before moving on.","doneMessage":"Well done! All errors are fixed.","invalidTime":"Enter a valid time","doneButton":"Done","reviewSubmitText":"Review and Submit","nextButtonText":"Next","prevButtonText":"Previous","seeErrorsButton":"See Errors","notEnoughStock":"Not enough stock for the current selection","notEnoughStock_remainedItems":"Not enough stock for the current selection ({count} items left)","soldOut":"Sold Out","justSoldOut":"Just Sold Out","selectionSoldOut":"Selection Sold Out","subProductItemsLeft":"({count} items left)","startButtonText":"START","submitButtonText":"Submit","submissionLimit":"Sorry! Only one entry is allowed. Multiple submissions are disabled for this form.","reviewBackText":"Back to Form","seeAllText":"See All","progressMiddleText":"of","fieldError":"field has an error.","error":"Error"};
+	JotForm.newPaymentUI = true;
+	JotForm.replaceTagTest = true;
+	JotForm.submitError="jumpToFirstError";
+	window.addEventListener('DOMContentLoaded',function(){window.brandingFooter.init({"formID":241186429055155,"campaign":"powered_by_jotform_le","isCardForm":false,"isLegacyForm":false,"formLanguage":"en"})});	JotForm.isFullSource = true;
+
+	JotForm.init(function(){
+	/*INIT-START*/
+if (window.JotForm && JotForm.accessible) $('input_55').setAttribute('tabindex',0);
+      JotForm.setPhoneMaskingValidator( 'input_8_full', '\u0028\u0023\u0023\u0023\u0029 \u0023\u0023\u0023\u002d\u0023\u0023\u0023\u0023' );
+if (window.JotForm && JotForm.accessible) $('input_51').setAttribute('tabindex',0);
+if (window.JotForm && JotForm.accessible) $('input_20').setAttribute('tabindex',0);
+      productID = {"0":"input_50_1000","1":"input_50_1001","2":"input_50_1002","3":"input_50_1003"};
+      paymentType = "product";
+      JotForm.setCurrencyFormat('USD',true, 'point');
+      JotForm.totalCounter({"input_50_1000":{"price":"154.50"},"input_50_1001":{"price":"154.50"},"input_50_1002":{"price":"0","custom_0":"input_50_custom_1002_0","specialPriceField":"input_50_custom_1002_0","specialPriceList":["309.00","515.00"]},"input_50_1003":{"price":"0","custom_0":"input_50_custom_1003_0","specialPriceField":"input_50_custom_1003_0","specialPriceList":["154.50","257.50"]}});
+      $$('.form-product-custom_quantity').each(function(el, i){el.observe('blur', function(){isNaN(this.value) || this.value < 1 ? this.value = '0' : this.value = parseInt(this.value)})});
+      $$('.form-product-custom_quantity').each(function(el, i){el.observe('focus', function(){this.value == 0 ? this.value = '' : this.value})});
+      JotForm.handleProductLightbox();
+      JotForm.alterTexts({"couponApply":"Apply","couponBlank":"Please enter a coupon.","couponChange":"","couponEnter":"Enter coupon","couponExpired":"Coupon is expired. Please try another one.","couponInvalid":"Coupon is invalid.","couponValid":"Coupon is valid.","shippingShipping":"Shipping","taxTax":"Tax","totalSubtotal":"Subtotal","totalTotal":"Total"}, true);
+	/*INIT-END*/
+	});
+
+   setTimeout(function() {
+JotForm.paymentExtrasOnTheFly([null,null,null,null,null,null,null,null,{"name":"phoneNumber8","qid":"8","text":"Phone Number","type":"control_phone"},null,null,null,null,null,{"name":"email14","qid":"14","subLabel":"example@example.com","text":"E-mail","type":"control_email"},{"name":"puppetWorkshop","qid":"15","text":"Puppet Workshop Registration","type":"control_head"},null,null,{"description":"","name":"applicantAge","qid":"18","subLabel":"","text":"Applicant Age","type":"control_number"},null,{"description":"","mde":"No","name":"notes","qid":"20","subLabel":"","text":"Notes","type":"control_textarea","wysiwyg":"Disable"},{"name":"submit","qid":"21","text":"Submit","type":"control_button"},null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,{"description":"","name":"workshop","qid":"50","text":"Workshop","type":"control_paypal"},{"description":"","name":"applicantName","qid":"51","subLabel":"","text":"Applicant Name (Attending The Workshop)","type":"control_textbox"},null,null,null,{"description":"","name":"name","qid":"55","subLabel":"","text":"Name","type":"control_textbox"}]);}, 20); 
+</script>
+<link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/stylebuilder/static/form-common.css?v=73932fc
+"/>
+<style type="text/css">@media print{*{-webkit-print-color-adjust: exact !important;color-adjust: exact !important;}.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
+<link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?v=3.3.54424&themeRevisionID=65660e4b326633110492e01a"/>
+<link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/css/styles/payment/payment_styles.css?3.3.54424" />
+<link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/payment/payment_feature.css?3.3.54424" />
+<style type="text/css" id="form-designer-style">
+    /* Injected CSS Code */
+/* Begining of advanced designer */
+
+/* 17 - INPUT WIDTHS */
+/*  20 - FORM PADDING */
+ul.form-section {
+  padding: 0px 38px;
+}
+/* Heights */
+.form-label {
+  margin-bottom: 8px;
+  margin-right: 0;
+}
+/* 11 - LINE PADDING */
+/* LABEL STYLE */
+/* 12 - ROUNDED INPUTS */
+.supernova .form-all,
+.form-all {
+  border-radius: 20px;
+}
+.form-section:first-child {
+  border-radius: 20px 20px 0 0;
+}
+.form-section:last-child {
+  border-radius: 0 0 20px 20px;
+}
+.form-radio-item,
+.form-checkbox-item {
+  padding-bottom: 0px;
+}
+.form-radio-item:last-child,
+.form-checkbox-item:last-child {
+  padding-bottom: 0;
+}
+.form-single-column .form-checkbox-item,
+.form-single-column .form-radio-item {
+  width: 100%;
+}
+.form-checkbox-item .editor-container div,
+.form-radio-item .editor-container div {
+  position: relative;
+}
+.form-checkbox-item .editor-container div:before,
+.form-radio-item .editor-container div:before {
+  display: inline-block;
+  vertical-align: middle;
+  left: 0;
+  width: 20px;
+  height: 20px;
+}
+.submit-button {
+  font-size: 16px;
+  font-weight: normal;
+  font-family: inherit;
+}
+.submit-button {
+  min-width: 180px;
+}
+.form-all .form-pagebreak-back,
+.form-all .form-pagebreak-next {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+}
+.form-all .form-pagebreak-back,
+.form-all .form-pagebreak-next {
+  min-width: 128px;
+}
+li[data-type="control_image"] div {
+  text-align: left;
+}
+li[data-type="control_image"] img {
+  border: none;
+  border-width: 0px !important;
+  border-style: solid !important;
+  border-color: false !important;
+}
+.supernova {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: auto;
+  background-size: cover;
+}
+.supernova {
+  background-image: none;
+  background-image: url("https://www.jotform.com/uploads/hazalbiri/form_files/khara-woods-80967-unsplash.5c9b6511abe7c8.74365146.jpg");
+}
+#stage {
+  background-image: none;
+  background-image: url("https://www.jotform.com/uploads/hazalbiri/form_files/khara-woods-80967-unsplash.5c9b6511abe7c8.74365146.jpg");
+}
+/* | */
+.form-all {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center top;
+  background-size: cover;
+}
+.form-header-group {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center top;
+}
+.header-large h1.form-header {
+  font-size: 2em;
+}
+.header-large h2.form-header {
+  font-size: 1.5em;
+}
+.header-large h3.form-header {
+  font-size: 1.17em;
+}
+.header-large h1 + .form-subHeader {
+  font-size: 1em;
+}
+.header-large h2 + .form-subHeader {
+  font-size: .875em;
+}
+.header-large h3 + .form-subHeader {
+  font-size: .75em;
+}
+.header-default h1.form-header {
+  font-size: 2em;
+}
+.header-default h2.form-header {
+  font-size: 1.5em;
+}
+.header-default h3.form-header {
+  font-size: 1.17em;
+}
+.header-default h1 + .form-subHeader {
+  font-size: 1em;
+}
+.header-default h2 + .form-subHeader {
+  font-size: .875em;
+}
+.header-default h3 + .form-subHeader {
+  font-size: .75em;
+}
+.header-small h1.form-header {
+  font-size: 2em;
+}
+.header-small h2.form-header {
+  font-size: 1.5em;
+}
+.header-small h3.form-header {
+  font-size: 1.17em;
+}
+.header-small h1 + .form-subHeader {
+  font-size: 1em;
+}
+.header-small h2 + .form-subHeader {
+  font-size: .875em;
+}
+.header-small h3 + .form-subHeader {
+  font-size: .75em;
+}
+.form-header-group {
+  text-align: left;
+}
+div.form-header-group.header-large,
+div.form-header-group.hasImage {
+  margin: 0px -38px;
+}
+div.form-header-group.header-large,
+div.form-header-group.hasImage {
+  padding: 40px 52px;
+}
+.form-header-group .form-header,
+.form-header-group .form-subHeader {
+  color: -1;
+}
+.form-header-group {
+  border-bottom: none;
+}
+.form-line-error {
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -ms-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  background-color: #fff4f4;
+}
+.form-line-error .form-error-message {
+  background-color: #f23a3c;
+  clear: both;
+  float: none;
+}
+.form-line-error .form-error-message .form-error-arrow {
+  border-bottom-color: #f23a3c;
+}
+.form-line-error input:not(#coupon-input),
+.form-line-error textarea,
+.form-line-error .form-validation-error {
+  border: 1px solid #f23a3c;
+  box-shadow: 0 0 3px #f23a3c;
+}
+.form-line-error {
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -ms-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  background-color: #fff4f4;
+}
+.form-line-active {
+  background-color: #f1f5ff;
+}
+/* 29 - FORM COLUMNS */
+
+/*PREFERENCES STYLE*/
+    .form-all {
+      font-family: Inter, sans-serif;
+    }
+  
+    .form-label.form-label-auto {
+      
+    display: block;
+    float: none;
+    text-align: left;
+    width: 100%;
+  
+    }
+  
+    .form-line {
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+  
+    .form-all {
+      max-width: 600px;
+      width: 100%;
+    }
+  
+    .form-label.form-label-left,
+    .form-label.form-label-right,
+    .form-label.form-label-left.form-label-auto,
+    .form-label.form-label-right.form-label-auto {
+      width: 230px;
+    }
+  
+    .form-all {
+      font-size: 16px
+    }
+  
+    .supernova .form-all, .form-all {
+      background-color: #000000;
+    }
+  
+    .form-all {
+      color: #686767;
+    }
+    .form-header-group .form-header {
+      color: #ffffff;
+    }
+    .form-header-group .form-subHeader {
+      color: #ffffff;
+    }
+    .form-label-top,
+    .form-label-left,
+    .form-label-right,
+    .form-html,
+    .form-checkbox-item label,
+    .form-radio-item label,
+    span.FITB .qb-checkbox-label,
+    span.FITB .qb-radiobox-label,
+    span.FITB .form-radio label,
+    span.FITB .form-checkbox label,
+    [data-blotid][data-type=checkbox] [data-labelid],
+    [data-blotid][data-type=radiobox] [data-labelid],
+    span.FITB-inptCont[data-type=checkbox] label,
+    span.FITB-inptCont[data-type=radiobox] label {
+      color: #ffffff;
+    }
+    .form-sub-label {
+      color: #ffffff;
+    }
+  
+  .supernova {
+    background-color: #000000;
+  }
+  .supernova body {
+    background: transparent;
+  }
+  
+    .form-textbox,
+    .form-textarea,
+    .form-dropdown,
+    .form-radio-other-input,
+    .form-checkbox-other-input,
+    .form-captcha input,
+    .form-spinner input {
+      background-color: #e3e3e3;
+    }
+  
+      
+    .supernova {
+      background-repeat: no-repeat;
+      background-size:cover;
+      background-attachment: fixed;
+      background-position: center top;
+    }
+
+      .supernova, #stage {
+        background-image: none;
+      }
+    
+      .form-all {
+        background-image: none;
+      }
+    /*PREFERENCES STYLE*//*__INSPECT_SEPERATOR__*/
+.form-submit-button.submit-button.jf-form-buttons.jsTest-submitField {
+    padding : 0 20px;
+}
+    /* Injected CSS Code */
+</style>
+
+<form class="jotform-form" onsubmit="return typeof testSubmitFunction !== 'undefined' && testSubmitFunction();" action="https://submit.jotform.com/submit/241186429055155" method="post" name="form_241186429055155" id="241186429055155" accept-charset="utf-8" autocomplete="on"><input type="hidden" name="formID" value="241186429055155" /><input type="hidden" id="JWTContainer" value="" /><input type="hidden" id="cardinalOrderNumber" value="" /><input type="hidden" id="jsExecutionTracker" name="jsExecutionTracker" value="build-date-1717178482401" /><input type="hidden" id="submitSource" name="submitSource" value="unknown" /><input type="hidden" id="buildDate" name="buildDate" value="1717178482401" />
+  <div id="formCoverLogo" style="margin-bottom:32px" class="form-cover-wrapper form-has-cover form-page-cover-image-align-center">
+    <div class="form-page-cover-image-wrapper" style="max-width:600px"><img src="https://www.jotform.com/uploads/gabrielcabralhathcock/form_files/wpflogo.662eb8f0ef2bd6.28848251.jpg" class="form-page-cover-image" width="260" height="260" aria-label="Form Logo" style="aspect-ratio:260/260" /></div>
+  </div>
+  <div role="main" class="form-all">
+    <ul class="form-section page-section">
+      <li id="cid_15" class="form-input-wide" data-type="control_head">
+        <div class="form-header-group  header-large">
+          <div class="header-text httac htvam">
+            <h1 id="header_15" class="form-header" data-component="header">Puppet Workshop Registration</h1>
+            <div id="subHeader_15" class="form-subHeader">Complete form below to signup for the workshop.</div>
+          </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textbox" id="id_55"><label class="form-label form-label-top form-label-auto" id="label_55" for="input_55" aria-hidden="false"> Name<span class="form-required">*</span> </label>
+        <div id="cid_55" class="form-input-wide jf-required" data-layout="half"> <input type="text" id="input_55" name="q55_name" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_55" required="" value="" /> </div>
+      </li>
+      <li class="form-line form-line-column form-col-1 jf-required" data-type="control_email" id="id_14"><label class="form-label form-label-top form-label-auto" id="label_14" for="input_14" aria-hidden="false"> E-mail<span class="form-required">*</span> </label>
+        <div id="cid_14" class="form-input-wide jf-required" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="email" id="input_14" name="q14_email14" class="form-textbox validate[required, Email]" data-defaultvalue="" autoComplete="section-input_14 email" style="width:310px" size="310" placeholder="ex: myname@example.com" data-component="email" aria-labelledby="label_14 sublabel_input_14" required="" value="" /><label class="form-sub-label" for="input_14" id="sublabel_input_14" style="min-height:13px">example@example.com</label></span> </div>
+      </li>
+      <li class="form-line form-line-column form-col-2 jf-required" data-type="control_phone" id="id_8"><label class="form-label form-label-top form-label-auto" id="label_8" for="input_8_full"> Phone Number<span class="form-required">*</span> </label>
+        <div id="cid_8" class="form-input-wide jf-required" data-layout="half"> <span class="form-sub-label-container" style="vertical-align:top"><input type="tel" id="input_8_full" name="q8_phoneNumber8[full]" data-type="mask-number" class="mask-phone-number form-textbox validate[required, Fill Mask]" data-defaultvalue="" autoComplete="section-input_8 tel-national" style="width:310px" data-masked="true" placeholder="(000) 000-0000" data-component="phone" aria-labelledby="label_8" required="" value="" /></span> </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textbox" id="id_51"><label class="form-label form-label-top form-label-auto" id="label_51" for="input_51" aria-hidden="false"> Applicant Name (Attending The Workshop)<span class="form-required">*</span> </label>
+        <div id="cid_51" class="form-input-wide jf-required" data-layout="half"> <input type="text" id="input_51" name="q51_applicantName" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" data-component="textbox" aria-labelledby="label_51" required="" value="" /> </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_number" id="id_18"><label class="form-label form-label-top form-label-auto" id="label_18" for="input_18" aria-hidden="false"> Applicant Age<span class="form-required">*</span> </label>
+        <div id="cid_18" class="form-input-wide jf-required" data-layout="half"> <input type="number" id="input_18" name="q18_applicantAge" data-type="input-number" class=" form-number-input form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" placeholder="e.g., 7" data-component="number" aria-labelledby="label_18" required="" step="any" value="" /> </div>
+      </li>
+      <li class="form-line" data-type="control_textarea" id="id_20"><label class="form-label form-label-top form-label-auto" id="label_20" for="input_20" aria-hidden="false"> Notes </label>
+        <div id="cid_20" class="form-input-wide" data-layout="full"> <textarea id="input_20" class="form-textarea" name="q20_notes" style="width:648px;height:163px" data-component="textarea" aria-labelledby="label_20"></textarea> </div>
+      </li>
+      <li class="form-line card-1col jf-required" data-type="control_paypal" id="id_50" data-payment="true"><label class="form-label form-label-top" id="label_50" for="input_50" aria-hidden="false"> Workshop<span class="form-required">*</span> </label>
+        <div id="cid_50" class="form-input-wide jf-required" data-layout="full">
+          <div data-wrapper-react="true" class="product-container-wrapper">
+            <div class="filter-container"></div><input type="hidden" name="simple_fpc" data-payment_type="paypal" data-component="payment1" value="50" /><input type="hidden" name="payment_transaction_uuid" id="paymentTransactionId" /><input type="hidden" name="payment_version" id="payment_version" value="4" /><input type="hidden" name="payment_total_checksum" id="payment_total_checksum" data-component="payment2" /><input type="hidden" name="payment_discount_value" id="payment_discount_value" data-component="payment3" />
+            <div id="image-overlay" class="overlay-content" style="display:none"><img id="current-image" /><span class="lb-prev-button">prev</span><span class="lb-next-button">next</span><span class="lb-close-button">( X )</span><span class="image-overlay-product-container">
+                <ul class="form-overlay-item" pid="1000" hasicon="false" hasimages="true" iconvalue="">
+                  <li class="image-overlay-image"><img loading="lazy" src="https://www.jotform.com/uploads/gabrielcabralhathcock/form_files/stick_finger_puppets_svg_74a78a169ddfecf2ff7151a97e725e30.png" /></li>
+                </ul>
+                <ul class="form-overlay-item" pid="1001" hasicon="false" hasimages="true" iconvalue="">
+                  <li class="image-overlay-image"><img loading="lazy" src="https://www.jotform.com/uploads/gabrielcabralhathcock/form_files/make_a_friend_048c983af20dc58c416eca47e45107dc.png" /></li>
+                </ul>
+                <ul class="form-overlay-item" pid="1002" hasicon="false" hasimages="true" iconvalue="">
+                  <li class="image-overlay-image"><img loading="lazy" src="https://www.jotform.com/uploads/gabrielcabralhathcock/form_files/hand_puppets_moving_mouth_svg_c87910d37c0a22b59779f13d641ad072.png" /></li>
+                </ul>
+                <ul class="form-overlay-item" pid="1003" hasicon="false" hasimages="true" iconvalue="">
+                  <li class="image-overlay-image"><img loading="lazy" src="https://www.jotform.com/uploads/gabrielcabralhathcock/form_files/one_on_one_6720295cec95ee3cf48a6b815117268b.png" /></li>
+                </ul>
+              </span></div>
+            <div data-wrapper-react="true"><span class="form-product-item hover-product-item  show_image show_desc new_ui" categories="non-categorized" pid="1000" aria-labelledby="label_50">
+                <div data-wrapper-react="true" class="form-product-item-detail new_ui">
+                  <div class="p_col">
+                    <div class="p_checkbox"><input type="checkbox" class="form-checkbox validate[required]  form-product-input" id="input_50_1000" name="q50_workshop[][id]" data-inputname="q50_workshop[][id]" value="1000" readonly="" aria-label="Select Product: Stick/Finger Puppets" data-is-default-required="false" data-is-default-selected="false" />
+                      <div class="checked"></div>
+                      <div class="select_border"></div>
+                    </div>
+                  </div>
+                  <div class="p_image">
+                    <div class="image_area form-product-image-with-options">
+                      <div style="position:absolute;width:100%;height:100%"><img loading="lazy" role="img" aria-label="Stick/Finger Puppets" alt="Stick/Finger Puppets Product Image" style="width:100%;height:100%;object-fit:cover" src="https://www.jotform.com/uploads/gabrielcabralhathcock/form_files/stick_finger_puppets_svg_74a78a169ddfecf2ff7151a97e725e30.png" /></div>
+                      <div class="image_zoom"></div>
+                    </div>
+                  </div>
+                  <div for="input_50_1000" class="form-product-container"><span data-wrapper-react="true">
+                      <div class="title_description"><span class="form-product-name" id="product-name-input_50_1000">Stick/Finger Puppets</span><span class="form-product-description" id="product-name-description-input_50_1000">Fun way to spend an afternoon while introducing little ones to puppetry (Requires sitting up to 2 hours, patience, cutting, and gluing) *Price increased by 3% due to PayPal fees.</span></div><span class="form-product-details"><b><span data-wrapper-react="true">$<span id="input_50_1000_price">154.50</span></span></b></span>
+                    </span></div>
+                  <div class="focus_action_button_container"><a class="btn-inline-product-delete" tabindex="0" role="button" aria-label="Delete Product"> </a><a class="btn-inline-product-settings" tabindex="0" role="button" aria-label="Product Settings"> </a></div>
+                </div>
+              </span>
+              <div class="p_item_separator "></div><span class="form-product-item hover-product-item  show_image show_desc new_ui" categories="non-categorized" pid="1001" aria-labelledby="label_50">
+                <div data-wrapper-react="true" class="form-product-item-detail new_ui">
+                  <div class="p_col">
+                    <div class="p_checkbox"><input type="checkbox" class="form-checkbox validate[required]  form-product-input" id="input_50_1001" name="q50_workshop[][id]" data-inputname="q50_workshop[][id]" value="1001" readonly="" aria-label="Select Product: Make A Friend Puppets" data-is-default-required="false" data-is-default-selected="false" />
+                      <div class="checked"></div>
+                      <div class="select_border"></div>
+                    </div>
+                  </div>
+                  <div class="p_image">
+                    <div class="image_area form-product-image-with-options">
+                      <div style="position:absolute;width:100%;height:100%"><img loading="lazy" role="img" aria-label="Make A Friend Puppets" alt="Make A Friend Puppets Product Image" style="width:100%;height:100%;object-fit:cover" src="https://www.jotform.com/uploads/gabrielcabralhathcock/form_files/make_a_friend_048c983af20dc58c416eca47e45107dc.png" /></div>
+                      <div class="image_zoom"></div>
+                    </div>
+                  </div>
+                  <div for="input_50_1001" class="form-product-container"><span data-wrapper-react="true">
+                      <div class="title_description"><span class="form-product-name" id="product-name-input_50_1001">Make A Friend Puppets</span><span class="form-product-description" id="product-name-description-input_50_1001">Many different styles for your child to choice from! They pick the color, style and all the features! (Requires sitting for up to 3-4 hours, cutting, measuring, glue gun) *Price increased by 3% due to PayPal fees.</span></div><span class="form-product-details"><b><span data-wrapper-react="true">$<span id="input_50_1001_price">154.50</span></span></b></span>
+                    </span></div>
+                  <div class="focus_action_button_container"><a class="btn-inline-product-delete" tabindex="0" role="button" aria-label="Delete Product"> </a><a class="btn-inline-product-settings" tabindex="0" role="button" aria-label="Product Settings"> </a></div>
+                </div>
+              </span>
+              <div class="p_item_separator "></div><span class="form-product-item hover-product-item  show_image show_desc show_option new_ui" categories="non-categorized" pid="1002" aria-labelledby="label_50">
+                <div data-wrapper-react="true" class="form-product-item-detail new_ui">
+                  <div class="p_col">
+                    <div class="p_checkbox"><input type="checkbox" class="form-checkbox validate[required]  form-product-input" id="input_50_1002" name="q50_workshop[][id]" data-inputname="q50_workshop[][id]" value="1002" readonly="" aria-label="Select Product: Hand Puppets (Moving Mouth)" data-is-default-required="false" data-is-default-selected="false" />
+                      <div class="checked"></div>
+                      <div class="select_border"></div>
+                    </div>
+                  </div>
+                  <div class="p_image">
+                    <div class="image_area form-product-image-with-options">
+                      <div style="position:absolute;width:100%;height:100%"><img loading="lazy" role="img" aria-label="Hand Puppets (Moving Mouth)" alt="Hand Puppets (Moving Mouth) Product Image" style="width:100%;height:100%;object-fit:cover" src="https://www.jotform.com/uploads/gabrielcabralhathcock/form_files/hand_puppets_moving_mouth_svg_c87910d37c0a22b59779f13d641ad072.png" /></div>
+                      <div class="image_zoom"></div>
+                    </div>
+                  </div>
+                  <div for="input_50_1002" class="form-product-container"><span data-wrapper-react="true">
+                      <div class="title_description"><span class="form-product-name" id="product-name-input_50_1002">Hand Puppets (Moving Mouth)</span><span class="form-product-description" id="product-name-description-input_50_1002">This style of puppet, common in shows like Sesame Street, is a fun puppet build, very expressive puppet. Full day includes basic puppet skills, character design as well as development. Higher skill level required, this program can be adapted to be more or less involved according to the group skill level. (Requires sitting for 3-4 hours at a time, sewing, drawing, cutting, measuring, and glue gun) *Price Increased by 3% due to PayPal Fees</span></div><span class="form-product-details"><b><span data-wrapper-react="true">$<span id="input_50_1002_price">309.00</span></span></b></span>
+                    </span><span class="form-sub-label-container" style="vertical-align:top"><label class="form-sub-label" for="input_50_custom_1002_0" style="min-height:13px">Days</label><span class="select_cont"><select class="form-dropdown validate[required]" name="q50_workshop[special_1002][item_0]" id="input_50_custom_1002_0" aria-label="Select Days">
+                          <option value="3 Half Day">3 Half Day</option>
+                          <option value="3 Full Day">3 Full Day</option>
+                        </select></span></span></div>
+                  <div class="focus_action_button_container"><a class="btn-inline-product-delete" tabindex="0" role="button" aria-label="Delete Product"> </a><a class="btn-inline-product-settings" tabindex="0" role="button" aria-label="Product Settings"> </a></div>
+                </div>
+              </span>
+              <div class="p_item_separator "></div><span class="form-product-item hover-product-item  show_image show_desc show_option new_ui" categories="non-categorized" pid="1003" aria-labelledby="label_50">
+                <div data-wrapper-react="true" class="form-product-item-detail new_ui">
+                  <div class="p_col">
+                    <div class="p_checkbox"><input type="checkbox" class="form-checkbox validate[required]  form-product-input" id="input_50_1003" name="q50_workshop[][id]" data-inputname="q50_workshop[][id]" value="1003" readonly="" aria-label="Select Product: One On One" data-is-default-required="false" data-is-default-selected="false" />
+                      <div class="checked"></div>
+                      <div class="select_border"></div>
+                    </div>
+                  </div>
+                  <div class="p_image">
+                    <div class="image_area form-product-image-with-options">
+                      <div style="position:absolute;width:100%;height:100%"><img loading="lazy" role="img" aria-label="One On One" alt="One On One Product Image" style="width:100%;height:100%;object-fit:cover" src="https://www.jotform.com/uploads/gabrielcabralhathcock/form_files/one_on_one_6720295cec95ee3cf48a6b815117268b.png" /></div>
+                      <div class="image_zoom"></div>
+                    </div>
+                  </div>
+                  <div for="input_50_1003" class="form-product-container"><span data-wrapper-react="true">
+                      <div class="title_description"><span class="form-product-name" id="product-name-input_50_1003">One On One</span><span class="form-product-description" id="product-name-description-input_50_1003">We also are offering a one on one workshop which can be anything from a Q&amp;A to a small puppet construction *Price increased by 3% due to PayPal Fees.</span></div><span class="form-product-details"><b><span data-wrapper-react="true">$<span id="input_50_1003_price">154.50</span></span></b></span>
+                    </span><span class="form-sub-label-container" style="vertical-align:top"><label class="form-sub-label" for="input_50_custom_1003_0" style="min-height:13px">Days</label><span class="select_cont"><select class="form-dropdown validate[required]" name="q50_workshop[special_1003][item_0]" id="input_50_custom_1003_0" aria-label="Select Days">
+                          <option value="Half Day">Half Day</option>
+                          <option value="Full Day">Full Day</option>
+                        </select></span></span></div>
+                  <div class="focus_action_button_container"><a class="btn-inline-product-delete" tabindex="0" role="button" aria-label="Delete Product"> </a><a class="btn-inline-product-settings" tabindex="0" role="button" aria-label="Product Settings"> </a></div>
+                </div>
+              </span>
+              <div class="payment_footer new_ui ">
+                <div class="total_area">
+                  <div class="form-payment-total">
+                    <div id="total-text">Total</div>
+                    <div class="form-payment-price"><span data-wrapper-react="true">$<span id="payment_total">0.00</span></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_button" id="id_21">
+        <div id="cid_21" class="form-input-wide" data-layout="full">
+          <div data-align="center" class="form-buttons-wrapper form-buttons-center   jsTest-button-wrapperField"><button id="input_21" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">Submit</button></div>
+        </div>
+      </li>
+      <li style="display:none">Should be Empty: <input type="text" name="website" value="" type="hidden" /></li>
+    </ul>
+  </div>
+  <script>
+    JotForm.showJotFormPowered = "new_footer";
+  </script>
+  <script>
+    JotForm.poweredByText = "Powered by Jotform";
+  </script><input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="241186429055155" />
+  <script type="text/javascript">
+    var all_spc = document.querySelectorAll("form[id='241186429055155'] .si" + "mple" + "_spc");
+    for (var i = 0; i < all_spc.length; i++)
+    {
+      all_spc[i].value = "241186429055155-241186429055155";
+    }
+  </script>
+</form>
+<link id=color-scheme-style href="https://cdn01.jotfor.ms/stylebuilder/static/color-scheme.css?v=3.3.54424" type="text/css" rel="stylesheet" /><script type="text/javascript">JotForm.ownerView=true;</script><script type="text/javascript">JotForm.isNewSACL=true;</script>

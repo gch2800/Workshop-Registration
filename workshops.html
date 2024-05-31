@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshops</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        .workshop {
+            margin-bottom: 30px;
+            background-color: #000;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .workshop img {
+            max-width: 120px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .workshop-info {
+            flex: 1;
+        }
+
+        .workshop-info h2 {
+            color: #fff;
+        }
+
+        .workshop-info p {
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .workshop-info button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .workshop-info button:last-child {
+            margin-right: 0;
+        }
+
+        .workshop-info button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Our Workshops</h1>
+        </header>
+        <section class="workshop" id="stick_finger">
+            <img src="https://i.ibb.co/FhzkHpT/Stick-Finger-Puppets-svg.png" alt="Stick-Finger-Puppets-svg">
+            <div class="workshop-info">
+                <h2>Stick/Finger Puppets</h2>
+                <p>Fun way to spend an afternoon while introducing little ones to puppetry (Requires sitting up to 2 hours, patience, cutting, and gluing)</p>
+                <p>Half Day = $150</p>
+                <button type="button" onclick="redirectToPayment('Stick/Finger Puppets', 150)">Register Now</button>
+            </div>
+        </section>
+        <section class="workshop" id="make_friend">
+            <img src="https://i.ibb.co/3BS0VjX/make-a-friend.png" alt="make-a-friend">
+            <div class="workshop-info">
+                <h2>Make A Friend Puppets</h2>
+                <p>Many different styles for your child to choose from! They pick the color, style and all the features! (Requires sitting for up to 3-4 hours, cutting, measuring, glue gun)</p>
+                <p>Half Day = $150</p>
+                <button type="button" onclick="redirectToPayment('Make A Friend Puppets', 150)">Register Now</button>
+            </div>
+        </section>
+        <section class="workshop" id="hand_puppets">
+            <img src="https://i.ibb.co/Zhn5zCs/Hand-Puppets-Moving-Mouth-svg.png" alt="Hand-Puppets-Moving-Mouth-svg">
+            <div class="workshop-info">
+                <h2>Hand Puppets (Moving Mouth)</h2>
+                <p>This style of puppet, common in shows like Sesame Street, is a fun puppet build, very expressive puppet. Full day includes basic puppet skills, character design as well as development. Higher skill level required, this program can be adapted to be more or less involved according to the group skill level.</p>
+                <p>3 Half Day = $300</p>
+                <p>3 Full Day = $500</p>
+                <button type="button" onclick="redirectToPayment('Hand Puppets (Moving Mouth)', 300)">Register for Half Day</button>
+                <button type="button" onclick="redirectToPayment('Hand Puppets (Moving Mouth)', 500)">Register for Full Day</button>
+            </div>
+        </section>
+        <section class="workshop" id="one_on_one">
+            <img src="https://i.ibb.co/yXwvtqJ/one-on-one.png" alt="one-on-one">
+            <div class="workshop-info">
+                <h2>One-on-One Workshop</h2>
+                <p>We also offer a one-on-one workshop which can be anything from a Q&A to a small puppet construction.</p>
+                <p>Half Day = $150</p>
+                <p>Full Day = $250</p>
+                <button type="button" onclick="redirectToPayment('One-on-One Workshop', 150)">Register for Half Day</button>
+                <button type="button" onclick="redirectToPayment('One-on-One Workshop', 250)">Register for Full Day</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function redirectToPayment(workshopType, price) {
+            // Replace this line with the actual URL of your payment page
+            window.location.href = "payment.html?workshopType=" + encodeURIComponent(workshopType) + "&price=" + encodeURIComponent(price);
+        }
+    </script>
+</body>
+</html>
+
