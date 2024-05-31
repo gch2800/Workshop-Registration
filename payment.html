@@ -100,7 +100,8 @@
 
         function setWorkshopDetails() {
             var workshopType = getUrlParameter('workshopType');
-            document.getElementById('notes').value = "Workshop Type: " + workshopType;
+            var price = getUrlParameter('price');
+            document.getElementById('notes').value = "Workshop Type: " + workshopType + "\nPrice: $" + price;
         }
 
         window.onload = function() {
@@ -136,13 +137,16 @@
                 notes: form.elements["notes"].value
             };
             var name = data.firstName + " " + data.lastName;
+            var price = getUrlParameter('price');
             var notes = "Name: " + name + ", " +
                         "Email: " + data.email + ", " +
                         "Phone Number: " + data.phoneNumber + ", " +
                         "Applicant Name: " + data.applicantName + ", " +
                         "Applicant Age: " + data.applicantAge + ", " +
-                        "Notes: " + data.notes;
-            window.location.href = "https://venmo.com/Jon-Ricketson?txn=pay&amount=150&note=" + encodeURIComponent(notes);
+                        "Workshop Type: " + data.notes.split('\n')[0] + ", " + // Extracting workshop type from notes
+                        "Price: $" + price + ", " +
+                        "Additional Notes: " + data.notes.split('\n')[1]; // Additional notes, if any
+            window.location.href = "https://venmo.com/Jon-Ricketson?txn=pay&amount=" + price + "&note=" + encodeURIComponent(notes);
         }
     </script>
 </body>
