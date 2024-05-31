@@ -83,14 +83,44 @@
             <textarea id="notes" name="notes" placeholder="Notes"></textarea>
 
             <div class="payment-buttons">
-                <button type="submit">
+                <button type="button" onclick="redirectToPayPal()">
                     <img src="https://i.postimg.cc/qt8SK0Sr/paypal.png" alt="PayPal">
                 </button>
-                <button type="submit">
+                <button type="button" onclick="redirectToVenmo()">
                     <img src="https://i.postimg.cc/5HcDjjPp/Venmo.png" alt="Venmo">
                 </button>
             </div>
         </form>
     </div>
-</body>
-</html>
+
+    <script>
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        function setWorkshopDetails() {
+            var workshopType = getUrlParameter('workshopType');
+            var price = getUrlParameter('price');
+            document.getElementById('notes').value = "Workshop Type: " + workshopType + "\nPrice: $" + price;
+        }
+
+        window.onload = function() {
+            setWorkshopDetails();
+        };
+
+        function redirectToPayPal() {
+            var form = document.getElementById("paymentForm");
+            var data = {
+                firstName: form.elements["firstName"].value,
+                lastName: form.elements["lastName"].value,
+                email: form.elements["email"].value,
+                phoneNumber: form.elements["phoneNumber"].value,
+                applicantName: form.elements["applicantName"].value,
+                applicantAge: form.elements["applicantAge"].value,
+                notes: form.elements["notes"].value
+            };
+            var name = data.firstName + " " + data.lastName;
+            var queryString = "name=" + encodeURIComponent(name) + "&" + Object.keys(data).map(key => key +
