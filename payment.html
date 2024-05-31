@@ -146,7 +146,13 @@
                         "Workshop Type: " + data.notes.split('\n')[0] + ", " + // Extracting workshop type from notes
                         "Price: $" + price + ", " +
                         "Additional Notes: " + data.notes.split('\n')[1]; // Additional notes, if any
-            window.location.href = "https://venmo.com/Jon-Ricketson?txn=pay&amount=" + price + "&note=" + encodeURIComponent(notes);
+            var venmoUrl = "https://venmo.com/Jon-Ricketson?txn=pay&amount=" + price + "&note=" + encodeURIComponent(notes);
+            var newWindow = window.open(venmoUrl, '_blank');
+            if (newWindow) {
+                newWindow.focus();
+            } else {
+                window.location.href = venmoUrl;
+            }
         }
     </script>
 </body>
