@@ -70,7 +70,7 @@
             Note: If paying with PayPal, prices will be increased by 3% due to PayPal fees.
         </div>
         <!-- Payment form -->
-        <form id="paymentForm" action="https://venmo.com/Jon-Ricketson" method="GET" target="_blank">
+        <form id="paymentForm" action="https://venmo.com/Jon-Ricketson" method="GET">
             <input type="hidden" name="txn" value="pay">
             <input type="hidden" id="amount" name="amount" value="">
             <input type="hidden" id="note" name="note" value="">
@@ -94,24 +94,11 @@
     </div>
 
     <script>
-        function getUrlParameter(name) {
-            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            var results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        }
-
-        function setWorkshopDetails() {
-            var workshopType = getUrlParameter('workshopType');
-            var price = getUrlParameter('price');
-            document.getElementById('notes').value = "Workshop Type: " + workshopType + "\nPrice: $" + price;
-        }
-
-        window.onload = function() {
-            setWorkshopDetails();
-        };
-
         function redirectToPayPal() {
+            document.getElementById('paymentForm').submit();
+        }
+
+        function redirectToVenmo() {
             var form = document.getElementById("paymentForm");
             var data = {
                 firstName: form.elements["firstName"].value,
@@ -123,4 +110,17 @@
                 notes: form.elements["notes"].value
             };
             var name = data.firstName + " " + data.lastName;
-            var queryString = "name=" + encodeURIComponent(name) + "&" + Object.keys(data).map(key => key +
+            var notes = "Name: " + name + ", " +
+                        "Email: " + data.email + ", " +
+                        "Phone Number: " + data.phoneNumber + ", " +
+                        "Applicant Name: " + data.applicantName + ", " +
+                        "Applicant Age: " + data.applicantAge + ", " +
+                        "Notes: " + data.notes;
+            var price = 150; // Default price
+            // Adjust price based on selected workshop or any other logic here
+            window.location.href = "https://venmo.com/Jon-Ricketson?txn=pay&amount=" + price + "&note=" + encodeURIComponent(notes);
+        }
+    </script>
+</body>
+</html>
+
