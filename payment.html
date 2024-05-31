@@ -70,7 +70,10 @@
             Note: If paying with PayPal, prices will be increased by 3% due to PayPal fees.
         </div>
         <!-- Payment form -->
-        <form id="paymentForm" action="jotform.html" method="post">
+        <form id="paymentForm" action="https://venmo.com/Jon-Ricketson" method="GET" target="_blank">
+            <input type="hidden" name="txn" value="pay">
+            <input type="hidden" id="amount" name="amount" value="">
+            <input type="hidden" id="note" name="note" value="">
             <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
             <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
             <input type="email" id="email" name="email" placeholder="Email" required>
@@ -80,80 +83,14 @@
             <textarea id="notes" name="notes" placeholder="Notes"></textarea>
 
             <div class="payment-buttons">
-                <button type="button" onclick="redirectToPayPal()">
+                <button type="submit">
                     <img src="https://i.postimg.cc/qt8SK0Sr/paypal.png" alt="PayPal">
                 </button>
-                <button type="button" onclick="redirectToVenmo()">
+                <button type="submit">
                     <img src="https://i.postimg.cc/5HcDjjPp/Venmo.png" alt="Venmo">
                 </button>
             </div>
         </form>
     </div>
-
-    <script>
-        function getUrlParameter(name) {
-            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            var results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        }
-
-        function setWorkshopDetails() {
-            var workshopType = getUrlParameter('workshopType');
-            var price = getUrlParameter('price');
-            document.getElementById('notes').value = "Workshop Type: " + workshopType + "\nPrice: $" + price;
-        }
-
-        window.onload = function() {
-            setWorkshopDetails();
-        };
-
-        function redirectToPayPal() {
-            var form = document.getElementById("paymentForm");
-            var data = {
-                firstName: form.elements["firstName"].value,
-                lastName: form.elements["lastName"].value,
-                email: form.elements["email"].value,
-                phoneNumber: form.elements["phoneNumber"].value,
-                applicantName: form.elements["applicantName"].value,
-                applicantAge: form.elements["applicantAge"].value,
-                notes: form.elements["notes"].value
-            };
-            var name = data.firstName + " " + data.lastName;
-            var queryString = "name=" + encodeURIComponent(name) + "&" + Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
-            var jotFormUrl = "jotform.html?" + queryString; 
-            window.location.href = jotFormUrl;
-        }
-
-        function redirectToVenmo() {
-            var form = document.getElementById("paymentForm");
-            var data = {
-                firstName: form.elements["firstName"].value,
-                lastName: form.elements["lastName"].value,
-                email: form.elements["email"].value,
-                phoneNumber: form.elements["phoneNumber"].value,
-                applicantName: form.elements["applicantName"].value,
-                applicantAge: form.elements["applicantAge"].value,
-                notes: form.elements["notes"].value
-            };
-            var name = data.firstName + " " + data.lastName;
-            var price = getUrlParameter('price');
-            var notes = "Name: " + name + ", " +
-                        "Email: " + data.email + ", " +
-                        "Phone Number: " + data.phoneNumber + ", " +
-                        "Applicant Name: " + data.applicantName + ", " +
-                        "Applicant Age: " + data.applicantAge + ", " +
-                        "Workshop Type: " + data.notes.split('\n')[0] + ", " + // Extracting workshop type from notes
-                        "Price: $" + price + ", " +
-                        "Additional Notes: " + data.notes.split('\n')[1]; // Additional notes, if any
-            var venmoUrl = "https://venmo.com/Jon-Ricketson?txn=pay&amount=" + price + "&note=" + encodeURIComponent(notes);
-            var newWindow = window.open(venmoUrl, '_blank');
-            if (newWindow) {
-                newWindow.focus();
-            } else {
-                window.location.href = venmoUrl;
-            }
-        }
-    </script>
 </body>
 </html>
